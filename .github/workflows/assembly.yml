@@ -9,6 +9,7 @@ jobs:
   build_car:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble car
         run: |
@@ -35,6 +36,7 @@ jobs:
   build_motorbike:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble motorbike
         run: |
@@ -62,6 +64,7 @@ jobs:
   test_car:
     needs: build_car
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download car artifact
         uses: actions/download-artifact@v7
@@ -79,6 +82,7 @@ jobs:
   test_motorbike:
     needs: build_motorbike
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download motorbike artifact
         uses: actions/download-artifact@v7
@@ -96,6 +100,7 @@ jobs:
   build_truck:
     needs: start
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Assemble truck
         run: |
@@ -122,6 +127,7 @@ jobs:
   test_truck:
    needs: build_truck
    runs-on: ubuntu-latest
+   container: ubuntu:22.04
    steps:
      - name: Download truck artifact
        uses: actions/download-artifact@v7
@@ -139,6 +145,7 @@ jobs:
   test_all:
     needs: [test_car, test_motorbike, test_truck]
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v7
@@ -158,6 +165,7 @@ jobs:
 
   start:
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Print start message
         run: echo "Starting assembly of the vehicles"
@@ -165,6 +173,7 @@ jobs:
   deploy_car:
     needs: test_all
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download car artifact
         uses: actions/download-artifact@v7
@@ -174,7 +183,6 @@ jobs:
 
       - name: Deploy car
         run: |
-          exit 1
           echo "Deploying car to production"
           cat build/car.txt
 
@@ -189,6 +197,7 @@ jobs:
   deploy_motorbike:
     needs: test_all
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download motorbike artifact
         uses: actions/download-artifact@v7
@@ -212,6 +221,7 @@ jobs:
   deploy_truck:
     needs: test_all
     runs-on: ubuntu-latest
+    container: ubuntu:22.04
     steps:
       - name: Download truck artifact
         uses: actions/download-artifact@v7
