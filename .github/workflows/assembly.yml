@@ -245,9 +245,11 @@ jobs:
   quality_report:
     needs: [test_car, test_motorbike, test_truck]
     runs-on: ubuntu-latest
-    container: ubuntu:22.04
     continue-on-error: true
     steps:
+      - name: Force a failure
+        run: exit 1
+        
       - name: Download all artifacts
         uses: actions/download-artifact@v7
         with:
