@@ -18,6 +18,7 @@ jobs:
           echo "Body Frame and Doors" >> build/car.txt
           echo "Lights and Indicators" >> build/car.txt
           echo "Winter wheels for car" > build/spare_parts_car.txt
+          echo "Invoice for car" > build/invoice_car.txt
           echo "Car Assembly Completed!"
           cat build/car.txt
 
@@ -41,6 +42,7 @@ jobs:
           echo "Seat" >> build/motorbike.txt
           echo "Fuel Tank" >> build/motorbike.txt
           echo "Winter wheels for motorbike" > build/spare_parts_motorbike.txt
+          echo "Invoice for motorbike" > build/invoice_motorbike.txt
           echo "Motorbike Assembly Completed!"
           cat build/motorbike.txt
 
@@ -97,6 +99,7 @@ jobs:
           echo "Cargo Bed" >> build/truck.txt
           echo "Cabin" >> build/truck.txt
           echo "Winter wheels for truck" > build/spare_parts_truck.txt
+          echo "Invoice for truck" > build/invoice_truck.txt
           echo "Truck Assembly Completed!"
           cat build/truck.txt
 
